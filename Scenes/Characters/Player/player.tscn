@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://dhb8lmce6htya"]
+
+[ext_resource type="Script" path="res://Scenes/Characters/Player/player.gd" id="1_e37bu"]
+[ext_resource type="Texture2D" uid="uid://cdfuumbpdunio" path="res://Assets/Player/player.png" id="1_v84fy"]
+[ext_resource type="PackedScene" uid="uid://ip5l04x57t78" path="res://Scenes/Abilities/Controller/sword_ability_controller.tscn" id="2_6c6l5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bnehc"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t0xwl"]
+radius = 52.2015
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_70fx5"]
+radius = 6.0
+height = 14.0
+
+[node name="Player" type="CharacterBody2D" groups=["Player", "player"]]
+collision_layer = 0
+motion_mode = 1
+script = ExtResource("1_e37bu")
+
+[node name="AbilityManager" type="Node" parent="."]
+
+[node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_6c6l5")]
+max_range = 50
+
+[node name="PickupRangeArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupRangeArea"]
+shape = SubResource("CircleShape2D_bnehc")
+
+[node name="AttractRangeArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttractRangeArea"]
+shape = SubResource("CircleShape2D_t0xwl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_v84fy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_70fx5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0

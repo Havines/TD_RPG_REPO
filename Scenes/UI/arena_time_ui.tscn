@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbxth70jfh6my"]
+
+[ext_resource type="Script" path="res://Scenes/UI/arena_time_ui.gd" id="1_ki165"]
+
+[node name="ArenaTimeUI" type="MarginContainer"]
+offset_right = 33.0
+offset_bottom = 26.0
+script = ExtResource("1_ki165")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Test"
+horizontal_alignment = 1
