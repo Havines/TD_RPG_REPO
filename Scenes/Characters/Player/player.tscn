@@ -8,10 +8,10 @@
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t0xwl"]
-radius = 52.2015
+radius = 50.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_70fx5"]
-radius = 6.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wpbii"]
+radius = 5.0
 height = 14.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player", "player"]]
@@ -41,13 +41,11 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_t0xwl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
 texture_filter = 1
+position = Vector2(0, -1)
 texture = ExtResource("1_v84fy")
+region_rect = Rect2(0, 0, 96, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("CapsuleShape2D_70fx5")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
+shape = SubResource("CapsuleShape2D_wpbii")
